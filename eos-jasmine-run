@@ -1,0 +1,34 @@
+#!/usr/bin/env gjs
+const Format = imports.format;
+const Gio = imports.gi.Gio;
+const GLib = imports.gi.GLib;
+const Lang = imports.lang;
+const Mainloop = imports.mainloop;
+const System = imports.system;
+String.prototype.format = Format.format;
+
+const JasmineGJS = imports.jasminegjsbootstrap;
+const Reporter = imports.EndlessConsoleReporter;
+const Timer = imports.EndlessTimer;
+
+if (ARGV.length < 1 || !ARGV[0].endsWith('.js')) {
+    printerr('Usage: %s testSuite.js [-I includepath ...]'.format(System.programInvocationName));
+    System.exit(1);
+}
+let dirname = GLib.path_get_dirname(ARGV[0]);
+let basename = GLib.path_get_basename(ARGV[0]);
+let moduleName = basename.substring(0, basename.length - 3);
+imports.searchPath.unshift(dirname);
+const Module = imports[moduleName];
+imports.searchPath.shift();
+
+let env = jasmine.getEnv();
+env.catchExceptions(false);
+env.addReporter(Reporter.defaultConsoleReporter);
+
+GLib.idle_add(GLib.PRIORITY_DEFAULT, function () {
+    Timer.quitMainLoopOnException(env.execute);
+    return false;
+}, null);
+
+Mainloop.run();
