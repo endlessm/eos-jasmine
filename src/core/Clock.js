@@ -97,6 +97,8 @@ getJasmineRequireObj().Clock = function() {
     function argSlice(argsObj, n) {
       return Array.prototype.slice.call(argsObj, 2);
     }
+    
+    return undefined; // SpiderMonkey strict mode
   }
 
   return Clock;

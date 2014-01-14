@@ -39,6 +39,8 @@ getJasmineRequireObj().buildExpectationResult = function() {
       }
       return stackFormatter(error);
     }
+    
+    return undefined; // SpiderMonkey strict mode
   }
 
   return buildExpectationResult;

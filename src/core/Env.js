@@ -63,6 +63,8 @@ getJasmineRequireObj().Env = function(j$) {
       function addExpectationResult(passed, result) {
         return spec.addExpectationResult(passed, result);
       }
+      
+      return undefined; // SpiderMonkey strict mode
     };
 
     var specStarted = function(spec) {
@@ -298,6 +300,8 @@ getJasmineRequireObj().Env = function(j$) {
         currentSpec = null;
         reporter.specDone(result);
       }
+      
+      return undefined; // SpiderMonkey strict mode
     };
 
     var suiteStarted = function(suite) {

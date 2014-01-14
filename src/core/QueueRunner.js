@@ -60,6 +60,8 @@ getJasmineRequireObj().QueueRunner = function() {
         throw e;
       }
     }
+    
+    return undefined; // SpiderMonkey strict mode
   };
 
   return QueueRunner;

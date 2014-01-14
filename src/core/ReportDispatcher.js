@@ -28,6 +28,8 @@ getJasmineRequireObj().ReportDispatcher = function() {
         }
       }
     }
+    
+    return undefined; // SpiderMonkey strict mode
   }
 
   return ReportDispatcher;
