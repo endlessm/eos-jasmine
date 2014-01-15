@@ -1,3 +1,5 @@
+const Gio = imports.gi.Gio;
+
 /* We define our own console reporter here, because the default one is not very useful */
 const EndlessConsoleReporter = function () {
 
