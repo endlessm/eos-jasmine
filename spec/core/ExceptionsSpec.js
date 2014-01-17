@@ -35,7 +35,7 @@ describe('Exceptions:', function() {
         env.it('should be a passing test that runs after exceptions are thrown from a async test', secondTest);
       });
 
-      expectations = function() {
+      var expectations = function() {
         expect(secondTest).toHaveBeenCalled();
         done();
       };

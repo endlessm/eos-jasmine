@@ -139,6 +139,8 @@ getJasmineRequireObj().DelayedFunctionScheduler = function() {
                  currentTime !== endTime  &&
                  scheduledLookup[0] <= endTime);
     }
+    
+    return undefined; // SpiderMonkey strict mode
   }
 
   return DelayedFunctionScheduler;

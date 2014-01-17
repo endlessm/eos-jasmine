@@ -6,7 +6,7 @@ describe("Env", function() {
   });
 
   it('removes all spies when env is executed', function(done) {
-    originalFoo = function() {},
+    var originalFoo = function() {},
     testObj = {
       foo: originalFoo
     },

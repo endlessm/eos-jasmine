@@ -119,6 +119,8 @@ getJasmineRequireObj().ConsoleReporter = function() {
 
       printNewline();
     }
+    
+    return undefined; // SpiderMonkey strict mode
   }
 
   return ConsoleReporter;

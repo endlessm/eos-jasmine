@@ -178,4 +178,6 @@ getJasmineRequireObj().matchersUtil = function(j$) {
       return typeof obj === 'function';
     }
   }
+  
+  return undefined; // SpiderMonkey strict mode
 };
