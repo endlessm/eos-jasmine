@@ -1,12 +1,13 @@
 const GLib = imports.gi.GLib;
 const Mainloop = imports.mainloop;
+const System = imports.system;
 
 function quitMainLoopOnException(fn) {
     try {
         fn();
     } catch (e) {
         Mainloop.quit();
-        throw e;
+        System.exit(1);
     }
 }
 
