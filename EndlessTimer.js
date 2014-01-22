@@ -6,7 +6,7 @@ function quitMainLoopOnException(fn) {
     try {
         fn();
     } catch (e) {
-        Mainloop.quit();
+        Mainloop.quit("jasmine");
         System.exit(1);
     }
 }
