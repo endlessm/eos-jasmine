@@ -31,4 +31,4 @@ GLib.idle_add(GLib.PRIORITY_DEFAULT, function () {
     return false;
 }, null);
 
-Mainloop.run();
+Mainloop.run("jasmine");

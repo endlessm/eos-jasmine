@@ -1,4 +1,5 @@
 const Gio = imports.gi.Gio;
+const Mainloop = imports.mainloop;
 
 /* We define our own console reporter here, because the default one is not very useful */
 const EndlessConsoleReporter = function () {
@@ -213,10 +214,11 @@ let defaultConsoleReporter = (EndlessConsoleReporter())({
     },
     timer: new jasmine.Timer(),
     onComplete: function (success) {
-        Mainloop.quit();
         _stdout.close(null);
 
-        if (!success)
+        if (success === false)
             throw new Error('Test suite failed');
+        else
+            Mainloop.quit("jasmine");
     }
 });

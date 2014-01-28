@@ -95,7 +95,7 @@ function executeSpecs(suites, baseDir) {
         return false;
     }, null);
 
-    Mainloop.run();
+    Mainloop.run("jasmine");
 }
 
 function _bootstrap(jasmineDir) {
