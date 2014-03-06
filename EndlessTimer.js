@@ -7,6 +7,8 @@ function quitMainLoopOnException(fn) {
         fn();
     } catch (e) {
         Mainloop.quit("jasmine");
+        printerr('Exception occurred outside of a test suite:', e);
+        printerr(e.stack);
         System.exit(1);
     }
 }
