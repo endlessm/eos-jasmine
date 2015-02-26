@@ -1,5 +1,6 @@
 const Gio = imports.gi.Gio;
 const Mainloop = imports.mainloop;
+const System = imports.system;
 
 /* We define our own console reporter here, because the default one is not very useful */
 const EndlessConsoleReporter = function () {
@@ -217,7 +218,7 @@ let defaultConsoleReporter = (EndlessConsoleReporter())({
         _stdout.close(null);
 
         if (success === false)
-            throw new Error('Test suite failed');
+            System.exit(1);
         else
             Mainloop.quit("jasmine");
     }
